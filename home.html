@@ -7,23 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="./style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .hero-image {
-            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-        }
-        
-        .room-image-1 {
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23f8fafc" width="400" height="300"/><rect fill="%23e2e8f0" x="20" y="50" width="360" height="200" rx="8"/><rect fill="%23cbd5e1" x="40" y="80" width="120" height="80"/><rect fill="%2394a3b8" x="180" y="90" width="80" height="60"/><circle fill="%2364748b" cx="320" cy="120" r="25"/><rect fill="%23475569" x="60" y="200" width="280" height="20"/></svg>') center/cover;
-        }
-        
-        .room-image-2 {
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23064e3b" width="400" height="300"/><rect fill="%23059669" x="50" y="40" width="300" height="180"/><rect fill="%23d97706" x="120" y="120" width="160" height="80"/><circle fill="%23f59e0b" cx="80" cy="80" r="15"/><circle fill="%23f59e0b" cx="320" cy="80" r="15"/><rect fill="%23374151" x="200" y="160" width="60" height="40"/></svg>') center/cover;
-        }
-        
-        .cityline-svg {
-            fill: currentColor;
-        }
-        
+    <style>      
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
@@ -55,8 +39,8 @@
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="home.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-                    <a href="project.html" class="text-gray-700 hover:text-blue-600 transition-colors">Projects</a>
-                    <a href="resources.html" class="text-gray-700 hover:text-blue-600 transition-colors">Resources</a>
+                    <a href="Project.html" class="text-gray-700 hover:text-blue-600 transition-colors">Projects</a>
+                    <a href="Resources.html" class="text-gray-700 hover:text-blue-600 transition-colors">Resources</a>
                 </nav>
 
                 <!-- Desktop CTA and Search -->
@@ -97,8 +81,8 @@
                 </div>
                 <nav class="space-y-6">
                     <a href="home.html" class="block text-gray-700 hover:text-blue-600 text-lg">Home</a>
-                    <a href="project.html" class="block text-gray-700 hover:text-blue-600 text-lg">Projects</a>
-                    <a href="resources.html" class="block text-gray-700 hover:text-blue-600 text-lg">Resources</a>
+                    <a href="Project.html" class="block text-gray-700 hover:text-blue-600 text-lg">Projects</a>
+                    <a href="Resources.html" class="block text-gray-700 hover:text-blue-600 text-lg">Resources</a>
                     <div class="pt-6 border-t border-gray-200">
                         <a href="https://tally.so/r/mBVWK1">
                             <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-full text-sm font-medium transition-colors flex items-center justify-center">
@@ -155,7 +139,7 @@
             <div class="">
                 <!-- Room images -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="max-sm:flex max-sm:w-48">
+                    <div class="max-sm:flex max-sm:w-40">
                         <img src="images/image 30.png" alt="" class="">
                         <img src="images/Green Interior.png" alt="" class="w-full rounded-2xl object-cover">
                     </div>
@@ -211,7 +195,7 @@
                             </svg>
                         </button>
                     </a>
-                    <a href="project.html">
+                    <a href="Project.html">
                         <button class="border border-blue-500 text-blue-500 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-50">
                             Our Projects
                         </button>
@@ -636,8 +620,8 @@
             <div class="border-t border-gray-700 pt-12">
                 <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
                     <div class="flex flex-wrap justify-center gap-6 text-gray-300">
-                        <a href="project.html" class="hover:text-white transition-colors">Projects</a>
-                        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+                        <a href="Project.html" class="hover:text-white transition-colors">Projects</a>
+                        <a href="Resources.html" class="hover:text-white transition-colors">Resources</a>
                         <a href="#" class="hover:text-white transition-colors">News & Events</a>
                         <a href="https://tally.so/r/mBVWK1" class="hover:text-white transition-colors">Submit a Paper</a>
                     </div>
@@ -664,48 +648,5 @@
 
     <!-- Javascript -->
      <script src="script.js"></script>
-    <!-- <script>
-        // Mobile menu functionality
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuOverlay = document.getElementById('menu-overlay');
-
-        function openMenu() {
-            mobileMenu.classList.add('open');
-            menuOverlay.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMenu() {
-            mobileMenu.classList.remove('open');
-            menuOverlay.classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-
-        mobileMenuBtn.addEventListener('click', openMenu);
-        closeMenuBtn.addEventListener('click', closeMenu);
-        menuOverlay.addEventListener('click', closeMenu);
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
-                closeMenu();
-            }
-        });
-
-        // Close menu when clicking on menu links (for single page navigation)
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768 && mobileMenu.classList.contains('open')) {
-                closeMenu();
-            }
-        });
-    </script> -->
 </body>
 </html>
