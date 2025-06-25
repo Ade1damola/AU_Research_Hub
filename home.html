@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AU Research Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero-image {
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+        }
+        
+        .room-image-1 {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23f8fafc" width="400" height="300"/><rect fill="%23e2e8f0" x="20" y="50" width="360" height="200" rx="8"/><rect fill="%23cbd5e1" x="40" y="80" width="120" height="80"/><rect fill="%2394a3b8" x="180" y="90" width="80" height="60"/><circle fill="%2364748b" cx="320" cy="120" r="25"/><rect fill="%23475569" x="60" y="200" width="280" height="20"/></svg>') center/cover;
+        }
+        
+        .room-image-2 {
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23064e3b" width="400" height="300"/><rect fill="%23059669" x="50" y="40" width="300" height="180"/><rect fill="%23d97706" x="120" y="120" width="160" height="80"/><circle fill="%23f59e0b" cx="80" cy="80" r="15"/><circle fill="%23f59e0b" cx="320" cy="80" r="15"/><rect fill="%23374151" x="200" y="160" width="60" height="40"/></svg>') center/cover;
+        }
+        
+        .cityline-svg {
+            fill: currentColor;
+        }
+        
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center">
+                        <div class="w-16 py-6">
+                            <img src="images/AUlogo.png" alt="AU Logo">
+                        </div>
+                        <span class="text-xl font-medium">X</span>
+                        <div class="w-14 h-14">
+                            <img src="images/UNILAG.png" alt="UNILAG logo">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="project.html" class="text-gray-700 hover:text-blue-600 transition-colors">Projects</a>
+                    <a href="resources.html" class="text-gray-700 hover:text-blue-600 transition-colors">Resources</a>
+                </nav>
+
+                <!-- Desktop CTA and Search -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="p-2 text-gray-400 hover:text-gray-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </button>
+                    <a href="https://tally.so/r/mBVWK1">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center">
+                            Submit a Paper
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 md:hidden">
+            <div class="p-6">
+                <div class="flex justify-end mb-8">
+                    <button id="close-menu-btn" class="p-2 text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="space-y-6">
+                    <a href="home.html" class="block text-gray-700 hover:text-blue-600 text-lg">Home</a>
+                    <a href="project.html" class="block text-gray-700 hover:text-blue-600 text-lg">Projects</a>
+                    <a href="resources.html" class="block text-gray-700 hover:text-blue-600 text-lg">Resources</a>
+                    <div class="pt-6 border-t border-gray-200">
+                        <a href="https://tally.so/r/mBVWK1">
+                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-full text-sm font-medium transition-colors flex items-center justify-center">
+                                Submit a Paper
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </button>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile menu overlay -->
+    <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden hidden"></div>
+
+    <!-- Hero section -->
+    <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+        <div class="lg:flex lg:items-center lg:space-x-16">
+            <!-- Text Content -->
+            <div class="mb-8 lg:mb-0">
+                <h1 class="text-4xl lg:text-5xl font-light text-gray-900 leading-tight mb-6">
+                    Shaping the future of architecture through research
+                </h1>
+            </div>
+            <div>    
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                    At AU Research Hub, we empower architectural innovation by curating, supporting, and publishing groundbreaking academic work from leading researchers around the world.
+                </p>
+                
+                <div class="flex gap-4">
+                    <a href="https://tally.so/r/mBVWK1">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-full font-medium transition-colors flex items-center justify-center">
+                            Submit a Paper
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </a>
+                    <a href="project.html">
+                        <button class="border border-blue-500 text-blue-500 hover:bg-blue-50 px-6 py-3 rounded-full font-medium transition-colors">
+                            Our Projects
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Section -->
+    <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+            <div class="">
+                <!-- Room images -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="max-sm:flex max-sm:w-48">
+                        <img src="images/image 30.png" alt="" class="">
+                        <img src="images/Green Interior.png" alt="" class="w-full rounded-2xl object-cover">
+                    </div>
+                    <div class="max-sm:h-64">
+                        <img src="images/Green Interior 2.png" alt="" class="w-full h-full rounded-2xl object-cover">
+                    </div>
+                </div>
+            </div>
+    </section>
+
+     <!-- About Section -->
+    <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+        <div class="mb-12">
+            <span class="border border-blue text-blue-500 px-6 py-2 font-semibold rounded-full text-sm uppercase tracking-wide">About The Hub</span>
+            <p class="mt-4 text-2xl font-medium leading-relaxed">
+                Luxey was founded by a group of seasoned real estate professionals who saw an 
+                opportunity to create a more transparent and customer-focused real estate platform.  With decades of experience and a shared vision, we set out to build a place where buyers, sellers, and renters could find and connect with the best properties effortlessly.
+            </p>
+        </div>
+            
+        <!-- Image Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 items-center">
+            <img src="images/image 24.png" alt="Team meeting" class="w-full rounded-2xl object-cover">
+            <img src="images/image 26.png" alt="Architecture department building" class="w-full rounded-2xl object-cover">
+            <img src="images/image 27.png" alt="Group of students/professionals" class="w-full rounded-2xl object-cover">
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <div class="bg-gray-100">
+        <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+            <div class="md:flex justify-between items-end mb-12">
+                <div class="md:w-3/6">
+                    <div class="inline-block px-4 py-2 rounded-full text-sm text-gray-700 font-medium mb-4 border border-black uppercase">
+                        Featured Projects
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl text-gray-900 mb-4">
+                        Design Chronicles —<br>
+                        Our Latest Masterpieces
+                    </h2>
+                    <p class="text-gray-600 text-lg max-w-2xl leading-relaxed">
+                        Explore a selection of our latest projects, each a testament to our commitment 
+                        to innovation, creativity, and excellence in design.
+                    </p>
+                </div>
+                
+                <div class="flex space-x-4 mt-16">
+                    <a href="https://tally.so/r/mBVWK1">
+                        <button class="bg-blue-500 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-600 flex items-center space-x-2">
+                            <span>Submit a Paper</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" style="fill: white;" d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/>
+                            </svg>
+                        </button>
+                    </a>
+                    <a href="project.html">
+                        <button class="border border-blue-500 text-blue-500 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-50">
+                            Our Projects
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="flex max-sm:flex-col  gap-8">
+                <!-- Grand Vista Card -->
+                <div class="flex-1 transition-all duration-300 ease-in-out hover:flex-[3] rounded-2xl overflow-hidden">
+                    <div class="relative">
+                        <img src="images/Grand Vista.png" alt="Grand Vista" 
+                            class="w-full h-96 object-cover bg-gradient-to-br from-amber-100 to-amber-200">
+                    </div>
+                    <div class="py-6">
+                        <h3 class="text-xl font-medium text-gray-900 mb-4">Grand Vista</h3>
+                        
+                        <div class="grid grid-cols-3 gap-y-3 text-sm">
+                            <div>
+                                <span class="text-gray-500 block text-xs">Category</span>
+                                <span class="text-gray-500">Sustainable</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 block text-xs">Year</span>
+                                <span class="text-gray-500">2021-23</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 block text-xs">Location</span>
+                                <span class="text-gray-500">Tokyo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elegant Retreat Card -->
+                <div class="flex-1 transition-all duration-300 ease-in-out hover:flex-[3] rounded-2xl overflow-hidden">
+                    <div class="relative">
+                        <img src="images/Elegant Retreat.png" alt="Elegant Retreat" 
+                            class="w-full h-96 object-cover bg-gradient-to-br from-stone-100 to-stone-200">
+                            </div>
+                    <div class="py-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Elegant Retreat</h3>
+                        
+                        <div class="grid grid-cols-3 gap-y-3 text-sm">
+                            <div>
+                                <span class="text-gray-500 block text-xs">Category</span>
+                                <span class="text-gray-500">Interior</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 block text-xs">Year</span>
+                                <span class="text-gray-500">2022</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 block text-xs">Location</span>
+                                <span class="text-gray-500">San Francisco</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern Marvel Card -->
+                <div class="flex-1 transition-all duration-300 ease-in-out hover:flex-[3] rounded-2xl overflow-hidden">
+                    <div class="relative">
+                        <img src="images/Modern Marvel.png" alt="Modern Marvel" 
+                            class="w-full h-96 object-cover bg-gradient-to-br from-orange-100 to-red-100">
+                    </div>
+                    <div class="py-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Modern Marvel</h3>
+                        
+                        <div class="grid grid-cols-3 gap-y-3 text-sm">
+                            <div>
+                                <span class="text-gray-500 block text-xs">Category</span>
+                                <span class="text-gray-500">Residential</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 block text-xs">Year</span>
+                                <span class="text-gray-500">2021</span>
+                            </div>
+                            <div>
+                                <span class="text-gray-500 block text-xs">Location</span>
+                                <span class="text-gray-500">London, UK</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Lastest Projects Section -->
+    <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+        <div class="md:flex justify-between items-end mb-12">
+            <div  class="md:w-3/6">
+                <div class="inline-block px-4 py-2 rounded-full text-sm text-blue-600 font-medium mb-4 border border-blue-500 uppercase">
+                    Latest Projects
+                </div>
+                <h2 class="text-4xl lg:text-5xl text-gray-900 mb-4">
+                    Featured Work from Our Community
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl leading-relaxed">
+                    Access the latest peer-reviewed papers, theses, and design research pushing the boundaries of the built environment.
+                </p>
+            </div>
+            <div>
+                <img src="images/image 32.png" alt="" class="max-sm:hidden">
+                <div class="flex space-x-4 mt-16">
+                    <a href="https://tally.so/r/mBVWK1">
+                        <button class="bg-blue-500 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-600 flex items-center space-x-2">
+                            <span>Submit a Paper</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" style="fill: white;" d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/>
+                            </svg>
+                        </button>
+                    </a>
+                     <a href="#">
+                        <button class="border border-blue-500 text-blue-500 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-50">
+                            Our Publications
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Articles Grid Container -->
+        <div class="max-w-6xl mx-auto">
+            <!-- Grid Layout -->
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
+                
+                <!-- Article Card 1 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <!-- Image Container -->
+                    <div class="relative bg-gray-200 h-48">
+                        <img src="images/image 3.png" alt="" class="place-self-center pt-8">
+                        <!-- Category Tag -->
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-medium">
+                                Work Life
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="py-4 px-2">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3 leading-tight">
+                            Design Essence : Geographic Perspective
+                        </h3>
+                        
+                        <div class="text-sm mb-4 text-gray-600 font-medium">
+                            <div class="mb-4">
+                                <span>By Tunji Adejumo</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <span>November 10, 2024</span>
+                            </div>
+                        </div>
+                        
+                        <button class="flex items-center space-x-2 bg-white px-4 py-2 rounded-full text-sm text-gray-700 font-bold mb-4 border border-gray-200"> 
+                            <span>Read More</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article Card 2 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <!-- Image Container -->
+                    <div class="relative bg-gray-200 h-48">
+                        <img src="images/image 3.png" alt="" class="place-self-center pt-8">
+                        <!-- Category Tag -->
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-medium">
+                                Work Life
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="py-4 px-2">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3 leading-tight">
+                            Design Essence : Geographic Perspective
+                        </h3>
+                        
+                        <div class="text-sm mb-4 text-gray-600 font-medium">
+                            <div class="mb-4">
+                                <span>By Tunji Adejumo</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <span>November 10, 2024</span>
+                            </div>
+                        </div>
+                        
+                        <button class="flex items-center space-x-2 bg-white px-4 py-2 rounded-full text-sm text-gray-700 font-bold mb-4 border border-gray-200"> 
+                            <span>Read More</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article Card 3 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                    <!-- Image Container -->
+                    <div class="relative bg-gray-200 h-48">
+                        <img src="images/image 3.png" alt="" class="place-self-center pt-8">
+                        <!-- Category Tag -->
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-white backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-xs font-medium">
+                                Work Life
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Content -->
+                    <div class="py-4 px-2">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3 leading-tight">
+                            Design Essence : Geographic Perspective
+                        </h3>
+                        
+                        <div class="text-sm mb-4 text-gray-600 font-medium">
+                            <div class="mb-4">
+                                <span>By Tunji Adejumo</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                                </svg>
+                                <span>November 10, 2024</span>
+                            </div>
+                        </div>
+                        
+                        <button class="flex items-center space-x-2 bg-white px-4 py-2 rounded-full text-sm text-gray-700 font-bold mb-4 border border-gray-200"> 
+                            <span>Read More</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+     <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+        <div class="mb-12">
+                <div class="inline-block bg-white px-4 py-2 rounded-full text-sm text-blue-500 font-medium mb-4 border border-blue-200 uppercase">
+                    The Team
+                </div>
+                <h2 class="text-4xl lg:text-5xl text-gray-900 mb-4">
+                    Meet the Minds Behind the Hub
+                </h2>
+                <p class="text-gray-600 text-lg max-w-2xl leading-relaxed">
+                    Our team is composed of passionate faculty and researchers with decades of experience in architectural inquiry, design systems, sustainability, and spatial theory.
+                </p>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div class="text-center group">
+                <div class="mb-6 relative overflow-hidden rounded-2xl">
+                    <img src="images/image.png" alt="" 
+                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Tunji Adejumo</h3>
+                <p class="text-gray-500 font-medium mb-4">Architect and  Professor</p>
+                <div class="flex justify-center space-x-3">
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-instagram text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-twitter text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-linkedin-in text-gray-600"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center group">
+                <div class="mb-6 relative overflow-hidden rounded-2xl">
+                    <img src="images/Pentecost 1.png" alt="" 
+                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Ray Pentecost III</h3>
+                <p class="text-gray-500 font-medium mb-4">Professor of Architecture</p>
+                <div class="flex justify-center space-x-3">
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-instagram text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-twitter text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-linkedin-in text-gray-600"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center group">
+                <div class="mb-6 relative overflow-hidden rounded-2xl">
+                    <img src="images/image 33.png" alt="" 
+                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Cory Henry</h3>
+                <p class="text-gray-500 font-medium mb-4">Designer and Founder</p>
+                <div class="flex justify-center space-x-3">
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-instagram text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-twitter text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-linkedin-in text-gray-600"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center group">
+                <div class="mb-6 relative overflow-hidden rounded-2xl">
+                    <img src="images/image 23.png" alt="" 
+                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Stephen Ajadi</h3>
+                <p class="text-gray-500 font-medium mb-4">Architect and Economist</p>
+                <div class="flex justify-center space-x-3">
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-instagram text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-twitter text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-linkedin-in text-gray-600"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center group">
+                <div class="mb-6 relative overflow-hidden rounded-2xl">
+                    <img src="images/image 35.png" alt="" 
+                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Bayo Amole</h3>
+                <p class="text-gray-500 font-medium mb-4">Architect and Retired Professor</p>
+                <div class="flex justify-center space-x-3">
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-instagram text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-twitter text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-linkedin-in text-gray-600"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center group">
+                <div class="mb-6 relative overflow-hidden rounded-2xl">
+                    <img src="images/image.png" alt="" 
+                         class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-1">Tunji Adejumo</h3>
+                <p class="text-gray-500 font-medium mb-4">Architect and  Professor</p>
+                <div class="flex justify-center space-x-3">
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-instagram text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-twitter text-gray-600"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors">
+                        <i class="fab fa-linkedin-in text-gray-600"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-black pt-32 pb-16 flex items-center justify-center relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-medium text-white mb-6 leading-tight">
+                Stay in the know with our<br>
+                weekly newsletter
+            </h2>
+            
+            <p class="text-gray-300 text-lg mb-12 max-w-lg mx-auto">
+                Regular updates ensure that readers have access to fresh perspectives, 
+                making Poster a must-read.
+            </p>
+
+            <!-- Email Signup Form -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 md:bg-white rounded-full">
+                <input 
+                    type="email" 
+                    placeholder="Email address" 
+                    class="w-full sm:w-80 px-6 py-4 rounded-full text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:ring-blue-500 transition-all"
+                >
+                <a href="https://tally.so/r/mBVWK1">
+                    <button class="bg-blue-500 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-600 flex items-center space-x-2">
+                        <span>Submit a Paper</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" style="fill: white;" d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/>
+                        </svg>
+                    </button>
+                </a>
+            </div>
+
+            <!-- Footer Navigation -->
+            <div class="border-t border-gray-700 pt-12">
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+                    <div class="flex flex-wrap justify-center gap-6 text-gray-300">
+                        <a href="project.html" class="hover:text-white transition-colors">Projects</a>
+                        <a href="resources.html" class="hover:text-white transition-colors">Resources</a>
+                        <a href="#" class="hover:text-white transition-colors">News & Events</a>
+                        <a href="https://tally.so/r/mBVWK1" class="hover:text-white transition-colors">Submit a Paper</a>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center gap-6 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+                
+                <p class="text-gray-500 text-sm">
+                    ©A+UR HUB. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+     <script src="script.js"></script>
+    <!-- <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            menuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            menuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                closeMenu();
+            }
+        });
+
+        // Close menu when clicking on menu links (for single page navigation)
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && mobileMenu.classList.contains('open')) {
+                closeMenu();
+            }
+        });
+    </script> -->
+</body>
+</html>
