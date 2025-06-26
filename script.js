@@ -39,3 +39,54 @@
                 closeMenu();
             }
         });
+
+// Fade In Effect
+// document.addEventListener("DOMContentLoaded", function() {
+//     const sections = document.querySelectorAll(".fade-in-section");
+
+//     const observerOptions = {
+//         root: null, // Use the viewport as the root
+//         rootMargin: "0px", // No margin around the root
+//         threshold: 0.1 // Trigger when 10% of the element is visible
+//     };
+
+//     const observer = new IntersectionObserver((entries, observer) => {
+//         entries.forEach(entry => {
+//             if (entry.isIntersecting) {
+//                 entry.target.classList.add("is-visible");
+//                 observer.unobserve(entry.target); // Stop observing once it's visible
+//             }
+//         });
+//     }, observerOptions);
+
+//     sections.forEach(section => {
+//         observer.observe(section);
+//     });
+// });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const sections = document.querySelectorAll(".fade-in-section");
+
+    const observerOptions = {
+        root: null, // Use the viewport as the root
+        rootMargin: "0px", // No margin around the root
+        threshold: 0.1 // Trigger when 10% of the element is visible/invisible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // If element is entering the viewport
+                entry.target.classList.add("is-visible");
+            } else {
+                // If element is leaving the viewport
+                entry.target.classList.remove("is-visible");
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});

@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AU Research Hub</title>
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CSS -->
     <link href="./style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>      
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
-    </style>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
 </head>
 <body>
     <!-- Header -->
@@ -102,7 +97,7 @@
     <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden hidden"></div>
 
     <!-- Hero section -->
-    <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+    <section class="fade-in-section max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
         <div class="lg:flex lg:items-center lg:space-x-16">
             <!-- Text Content -->
             <div class="mb-8 lg:mb-0">
@@ -135,11 +130,11 @@
     </section>
 
     <!-- Image Section -->
-    <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+    <section class="fade-in-section max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
             <div class="">
                 <!-- Room images -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="max-sm:flex max-sm:w-40">
+                    <div class="max-sm:flex max-sm:w-40 ">
                         <img src="images/image 30.png" alt="" class="">
                         <img src="images/Green Interior.png" alt="" class="w-full rounded-2xl object-cover">
                     </div>
@@ -151,7 +146,7 @@
     </section>
 
      <!-- About Section -->
-    <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+    <section class="fade-in-section max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
         <div class="mb-12">
             <span class="border border-blue text-blue-500 px-6 py-2 font-semibold rounded-full text-sm uppercase tracking-wide">About The Hub</span>
             <p class="mt-4 text-2xl font-medium leading-relaxed">
@@ -168,7 +163,7 @@
     </section>
 
     <!-- Featured Projects Section -->
-    <div class="bg-gray-100">
+    <div class="fade-in-section bg-gray-100">
         <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
             <div class="md:flex justify-between items-end mb-12">
                 <div class="md:w-3/6">
@@ -286,7 +281,7 @@
     </div>
 
     <!-- Lastest Projects Section -->
-    <section class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+    <section class="fade-in-section max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
         <div class="md:flex justify-between items-end mb-12">
             <div  class="md:w-3/6">
                 <div class="inline-block px-4 py-2 rounded-full text-sm text-blue-600 font-medium mb-4 border border-blue-500 uppercase">
@@ -303,7 +298,7 @@
                 <img src="images/image 32.png" alt="" class="max-sm:hidden">
                 <div class="flex space-x-4 mt-16">
                     <a href="https://tally.so/r/mBVWK1">
-                        <button class="bg-blue-500 text-white px-6 py-2.5 rounded-full text-sm max-sm:text-[10px] font-medium hover:bg-blue-600 flex items-center space-x-2">
+                        <button class="bg-blue-500 text-white px-6 py-2.5 rounded-full text-sm max-sm:text-[12px] font-medium hover:bg-blue-600 flex items-center space-x-2">
                             <span>Submit a Paper</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" style="fill: white;" d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/>
@@ -311,7 +306,7 @@
                         </button>
                     </a>
                      <a href="#">
-                        <button class="border border-blue-500 text-blue-500 px-6 py-2.5 rounded-full text-sm max-sm:text-[10px] font-medium hover:bg-blue-50">
+                        <button class="border border-blue-500 text-blue-500 px-6 py-2.5 rounded-full text-sm max-sm:text-[12px] font-medium hover:bg-blue-50">
                             Our Publications
                         </button>
                     </a>
@@ -448,7 +443,7 @@
     </section>
     
     <!-- Team Section -->
-     <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
+     <div class="fade-in-section max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
         <div class="mb-12">
                 <div class="inline-block bg-white px-4 py-2 rounded-full text-sm text-blue-500 font-medium mb-4 border border-blue-200 uppercase">
                     The Team
@@ -586,7 +581,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="bg-black pt-32 pb-16 flex items-center justify-center relative overflow-hidden">
+    <div class="fade-in-section bg-black pt-32 pb-16 flex items-center justify-center relative overflow-hidden">
         <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
             <h2 class="text-4xl md:text-5xl font-medium text-white mb-6 leading-tight">
                 Stay in the know with our<br>
