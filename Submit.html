@@ -9,45 +9,90 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="bg-white shadow-sm px-4 py-4">
-        <div class="max-w-6xl mx-auto flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="w-16 h-14">
-                    <img src="images/AUlogo.png" alt="AU Logo">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center">
+                        <div class="w-16 py-6">
+                            <img src="images/AUlogo.png" alt="AU Logo">
+                        </div>
+                        <span class="text-xl font-medium">X</span>
+                        <div class="w-14 h-14">
+                            <img src="images/UNILAG.png" alt="UNILAG logo">
+                        </div>
+                    </div>
                 </div>
-                <span class="text-xl font-medium">X</span>
-                <div class="w-14 h-14">
-                    <img src="images/UNILAG.png" alt="UNILAG logo">
-                </div>
-            </div>
-            
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="AUResearchHub.html" class="font-medium hover:text-blue-600">Home</a>
-                <a href="Project.html" class="font-medium hover:text-blue-600">Projects</a>
-                <a href="Resources.html" class="font-medium hover:text-blue-600">Resources</a>
-            </div>
-                
-            <div class="flex items-center space-x-4">
-                <button class="p-2 hover:bg-gray-100 rounded-full">
-                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                </button>
-                <a href="Submit.html">
-                    <button class="bg-blue-500 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-600 flex items-center space-x-2">
-                        <span>Submit a Paper</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" style="fill: white;" d="M7 7h8.586L5.293 17.293l1.414 1.414L17 8.414V17h2V5H7v2z"/>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="home.html" class="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="Project.html" class="text-gray-700 hover:text-blue-600 transition-colors">Projects</a>
+                    <a href="Resources.html" class="text-gray-700 hover:text-blue-600 transition-colors">Resources</a>
+                </nav>
+
+                <!-- Desktop CTA and Search -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button class="p-2 text-gray-400 hover:text-gray-600">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
                     </button>
-                </a>
+                    <a href="https://tally.so/r/mBVWK1">
+                        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center">
+                            Submit a Paper
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
             </div>
         </div>
-    </nav>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 md:hidden">
+            <div class="p-6">
+                <div class="flex justify-end mb-8">
+                    <button id="close-menu-btn" class="p-2 text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="space-y-6">
+                    <a href="home.html" class="block text-gray-700 hover:text-blue-600 text-lg">Home</a>
+                    <a href="Project.html" class="block text-gray-700 hover:text-blue-600 text-lg">Projects</a>
+                    <a href="Resources.html" class="block text-gray-700 hover:text-blue-600 text-lg">Resources</a>
+                    <div class="pt-6 border-t border-gray-200">
+                        <a href="https://tally.so/r/mBVWK1">
+                            <button class="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-full text-sm font-medium transition-colors flex items-center justify-center">
+                                Submit a Paper
+                                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </button>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile menu overlay -->
+    <div id="menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden hidden"></div>
 
     <!-- Submit Section -->
-    <div class="bg-gray-50 py-12 px-6">
+    <div class="fade-in-section max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16 bg-gray-50">
         <div class="max-w-2xl mx-auto">
             <div class="text-center mb-12">
                 <div class="inline-block bg-white px-4 py-2 rounded-full text-sm text-blue-500 font-medium mb-4 border border-gray-200 uppercase">
@@ -195,7 +240,7 @@
     </div>
 
     <!-- Contact Section -->
-    <div class="py-12 px-6">
+    <div class="fade-in-section max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-8 lg:py-16">
         <div class="max-w-7xl mx-auto">
             <div class="dotted-border p-8 bg-white">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
@@ -276,8 +321,8 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <div class="bg-black py-12 flex items-center justify-center relative overflow-hidden">
+     <!-- Footer -->
+    <div class="fade-in-section bg-black pt-32 pb-16 flex items-center justify-center relative overflow-hidden">
         <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
             <h2 class="text-4xl md:text-5xl font-medium text-white mb-6 leading-tight">
                 Stay in the know with our<br>
@@ -296,7 +341,7 @@
                     placeholder="Email address" 
                     class="w-full sm:w-80 px-6 py-4 rounded-full text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-0 focus:ring-blue-500 transition-all"
                 >
-                <a href="Submit.html">
+                <a href="https://tally.so/r/mBVWK1">
                     <button class="bg-blue-500 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-600 flex items-center space-x-2">
                         <span>Submit a Paper</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -313,7 +358,7 @@
                         <a href="Project.html" class="hover:text-white transition-colors">Projects</a>
                         <a href="Resources.html" class="hover:text-white transition-colors">Resources</a>
                         <a href="#" class="hover:text-white transition-colors">News & Events</a>
-                        <a href="Submit.html" class="hover:text-white transition-colors">Submit a Paper</a>
+                        <a href="https://tally.so/r/mBVWK1" class="hover:text-white transition-colors">Submit a Paper</a>
                     </div>
                 </div>
                 
@@ -337,68 +382,6 @@
     </div>
 
     <!-- Javascript -->
-    <!-- <script>
-        // File upload functionality
-        const uploadArea = document.querySelector('.border-dashed');
-        const fileInput = document.getElementById('file-upload');
-
-        // Click to upload
-        uploadArea.addEventListener('click', () => {
-            fileInput.click();
-        });
-
-        // File input change
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                const fileName = e.target.files[0].name;
-                uploadArea.innerHTML = 
-                    <div class="mb-4">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-check text-green-600 text-xl"></i>
-                        </div>
-                        <p class="text-gray-700 font-medium">${fileName}</p>
-                        <p class="text-sm text-gray-400 mt-2">File uploaded successfully</p>
-                    </div>
-                ;
-            }
-        });
-
-        // Drag and drop functionality
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('border-green-400', 'bg-green-50');
-        });
-
-        uploadArea.addEventListener('dragleave', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('border-green-400', 'bg-green-50');
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('border-green-400', 'bg-green-50');
-            
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                fileInput.files = files;
-                const fileName = files[0].name;
-                uploadArea.innerHTML = 
-                    <div class="mb-4">
-                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-check text-green-600 text-xl"></i>
-                        </div>
-                        <p class="text-gray-700 font-medium">${fileName}</p>
-                        <p class="text-sm text-gray-400 mt-2">File uploaded successfully</p>
-                    </div>
-                ;
-            }
-        });
-
-        // Form submission
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Form submitted successfully! (This is a demo)');
-        });
-    </script> -->
+    <script src="script.js"></script>
 </body>
 </html>
